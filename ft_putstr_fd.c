@@ -6,12 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/17 13:56:44 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/19 13:15:33 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/05 14:52:49 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putstr_fd(char *s, int fd)
 {

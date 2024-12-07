@@ -6,17 +6,30 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 17:50:42 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/20 17:51:26 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/06 14:53:35 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+	// if (!s)
+	// 	return (NULL);
+
 char	*ft_strrchr(const char *s, int c)
 {
-	while (*s != '\0')
+	int	i;
+
+	i = 0;
+	c = (char)c;
+	while (s[i] != '\0')
+		i++;
+	while (i >= 0)
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
 	}
+	if (c == 0)
+		return ((char *)s);
 	return (0);
 }

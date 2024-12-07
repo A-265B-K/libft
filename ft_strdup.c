@@ -6,12 +6,10 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/10 15:36:25 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/20 17:22:09 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/06 14:07:12 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stddef.h>
 #include "libft.h"
 
 char	*ft_strdup(const char *s)
@@ -23,6 +21,8 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	i2 = ft_strlen(s);
 	str = (char *)malloc(sizeof(*str) * (i2 + 1));
+	if (!str)
+		return (NULL);
 	while (i < i2)
 	{
 		str[i] = s[i];

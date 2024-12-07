@@ -6,14 +6,13 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/16 17:15:51 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/20 12:52:42 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/05 14:53:51 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-static int	ft_nb_size(int nb)
+static int	ft_leng(int nb)
 {
 	int	l;
 
@@ -22,7 +21,7 @@ static int	ft_nb_size(int nb)
 		return (1);
 	if (nb < 0)
 		l++;
-	while (nb > 0)
+	while (nb != 0)
 	{
 		nb /= 10;
 		l++;
@@ -32,25 +31,28 @@ static int	ft_nb_size(int nb)
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		l;
+	char			*str;
+	int				l;
+	unsigned int	res;
 
-	l = ft_nb_size(n);
+	l = ft_leng(n);
 	str = (char *)malloc(sizeof(char) * (l + 1));
 	if (str == NULL)
 		return (NULL);
 	if (n < 0)
 	{
 		str[0] = '-';
-		n = -n;
+		res = -n;
 	}
-	if (n == 0)
+	else
+		res = n;
+	if (res == 0)
 		str[0] = '0';
 	str[l] = '\0';
-	while (n > 0)
+	while (res > 0)
 	{
-		str[l - 1] = (n % 10) + '0';
-		n = n / 10;
+		str[l - 1] = (res % 10) + '0';
+		res = res / 10;
 		l--;
 	}
 	return (str);

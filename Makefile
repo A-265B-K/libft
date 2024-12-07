@@ -1,6 +1,6 @@
 NAME = libft.a
-CC = cc
 CFLAGS = -Wall -Werror -Wextra 
+HEADER = libft.h
 SRC = \
     ft_atoi.c \
     ft_bzero.c \
@@ -41,7 +41,7 @@ OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) ${HEADER}
 	ar -rcs ${NAME} ${OBJS}
 clean:
 	-rm -f $(OBJS) 

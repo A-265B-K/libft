@@ -6,12 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/11 14:31:48 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/19 13:19:49 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/05 17:21:07 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static int	ft_wordlength(const char *s, char c)
 {
@@ -72,7 +71,7 @@ static void	ft_free(char **strs)
 	int	i;
 
 	i = 0;
-	while (*strs[i] != '\0')
+	while (strs[i] != NULL)
 		free(strs[i++]);
 	free(strs);
 }
@@ -83,24 +82,29 @@ char	**ft_split(const char *s, char c)
 	char	**strs;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	count = ft_wordcount(s, c);
 	strs = (char **)malloc(sizeof(char *) * (count + 1));
-	if (strs == NULL)
+	if (!strs)
 		return (NULL);
-	*strs[count] = '\0';
-	i = 0;
-	while (i < count)
+	i = -1;
+	strs[count] = NULL;
+	while (++i < count)
 	{
-		strs[i] = ft_loc(s, c);
-		if (strs[i] == NULL)
-			ft_free(strs);
-		s += ft_wordlength(s, c);
-		if (*s != '\0')
+		while (*s == c)
 			s++;
-		i++;
+		strs[i] = ft_loc(s, c);
+		if (!strs[i])
+		{
+			ft_free(strs);
+			return (NULL);
+		}
+		s += ft_wordlength(s, c);
 	}
 	return (strs);
 }
+
 // int main(void)
 // {
 //     const char *str = "King Gizzard & the Lizard Wizard";

@@ -6,16 +6,19 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/10 14:38:01 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/20 17:47:29 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/05 14:55:22 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n--)
-		if (*(char *)s++ == c)
+	{
+		if (*(unsigned char *)s == (unsigned char)c)
 			return ((void *)s);
+		s++;
+	}
 	return (NULL);
 }

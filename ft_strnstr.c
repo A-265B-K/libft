@@ -6,18 +6,18 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/10 14:41:45 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/19 13:22:05 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/11/06 14:54:04 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	i2;
 
-	if (little == NULL || *little == '\0')
+	if (*little == '\0')
 		return ((char *)big);
 	i = 0;
 	i2 = 0;

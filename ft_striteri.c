@@ -6,12 +6,18 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/23 17:45:01 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/10/23 17:53:30 by alkuijte      ########   odam.nl         */
+/*   Updated: 2023/10/30 12:32:56 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_striteri(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, char (*f)(unsigned int, char*))
 {
-	while (*s++ != '\0')
-		*s = f(i, *s);
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

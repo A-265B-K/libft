@@ -1,5 +1,6 @@
 NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra 
+CFLAGS = -Wall -Werror -Wextra
+CC = gcc
 HEADER = libft.h
 SRC = \
     ft_atoi.c \
@@ -35,17 +36,39 @@ SRC = \
     ft_strtrim.c \
     ft_striteri.c \
     ft_strmapi.c \
-    ft_split.c \
+    ft_split.c
+
+SRCB = \
+    ft_lstnew.c \
+    ft_lstadd_front.c \
+    ft_lstsize.c \
+    ft_lstlast.c \
+    ft_lstadd_back.c \
+    ft_lstdelone.c \
+    ft_lstclear.c \
+    ft_lstiter.c \
+    ft_lstmap.c
 
 OBJS = $(SRC:.c=.o)
+OBJSB = $(SRCB:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) ${HEADER}
-	ar -rcs ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
+
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: $(OBJS) $(OBJSB)
+	ar -rcs $(NAME) $(OBJS) $(OBJSB)
+
 clean:
-	-rm -f $(OBJS) 
+	rm -f $(OBJS) $(OBJSB)
+
 fclean: clean
-	-rm -f $(NAME)
+	rm -f $(NAME)
+
 re: fclean all
-.PHONY: all clean fclean re 
+
+.PHONY: all clean fclean re bonus

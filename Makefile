@@ -2,7 +2,16 @@ NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
 CC = gcc
 HEADER = libft.h
+SRCDIR = src/
+OBJDIR = obj/
+
 SRC = \
+	$(SRC_LIBFT) \
+	$(SRC_PRINTF) \
+	$(SRC_PRINTF_FD) \
+	$(SRC_GNL)
+
+SRC_LIBFT = \
     ft_atoi.c \
     ft_bzero.c \
     ft_calloc.c \
@@ -36,9 +45,7 @@ SRC = \
     ft_strtrim.c \
     ft_striteri.c \
     ft_strmapi.c \
-    ft_split.c
-
-SRCB = \
+    ft_split.c \
     ft_lstnew.c \
     ft_lstadd_front.c \
     ft_lstsize.c \
@@ -49,26 +56,42 @@ SRCB = \
     ft_lstiter.c \
     ft_lstmap.c
 
-OBJS = $(SRC:.c=.o)
-OBJSB = $(SRCB:.c=.o)
+SRC_PRINTF = \
+	ft_pointer.c \
+	ft_print.c \
+	ft_printf.c
+
+SRC_PRINTF_FD = \
+	ft_pointer_fd.c \
+	ft_print_fd.c \
+	ft_printf_fd.c
+
+SRC_GNL = get_next_line.c \
+		  get_next_line_utils.c
+
+OBJS = $(SRC:%.c=$(OBJDIR)%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	@ar -rcs $(NAME) $(OBJS)
+	@echo "Made libft, printf & gnl"
 
 %.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -Iincl -c $< -o $@
 
-bonus: $(OBJS) $(OBJSB)
-	ar -rcs $(NAME) $(OBJS) $(OBJSB)
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -Iincl -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJSB)
+	@rm -f $(OBJS)
+	@echo "Removed libft, printf & gnl .o files"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "Removed libft .a file"
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

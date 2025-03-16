@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.h                                        :+:    :+:            */
+/*   ft_strjoin3.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/05 17:44:07 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/12/07 16:29:42 by alkuijte      ########   odam.nl         */
+/*   Created: 2025/03/09 12:08:03 by alkuijte      #+#    #+#                 */
+/*   Updated: 2025/03/09 12:43:55 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include <libft.h>
+#include "../libft.h"
 
-int	ft_printf(const char *s, ...);
-int	ft_printint(int i, unsigned int nb);
-int	ft_hexd(unsigned int nb, char x);
-int	ft_hexd2(unsigned long long nb);
-int	ft_pointer(void *p);
+char	*ft_strjoin3(const char *s1, const char *s2, const char *s3)
+{
+	char	*res;
 
-#endif
+	res = malloc(ft_strlen(s1) + ft_strlen(s2) + ft_strlen(s3) + 1);
+	if (!res)
+		return (NULL);
+	ft_strcpy(res, s1);
+	ft_strcat(res, s2);
+	ft_strcat(res, s3);
+	return (res);
+}

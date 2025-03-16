@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/10 15:11:42 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/06 16:15:14 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:39:05 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

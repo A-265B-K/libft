@@ -6,7 +6,7 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/12 19:40:27 by alkuijte      #+#    #+#                 */
-/*   Updated: 2024/12/08 10:34:51 by wdpk          ########   odam.nl         */
+/*   Updated: 2025/03/09 12:44:27 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <ft_printf.h>
-# include <ft_printf_fd.h>
-
 
 typedef struct s_list
 {
@@ -51,12 +48,10 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int		ft_putchar(char c);
-int		ft_putstr(char *s);
-int		ft_putchar_fd(char c, int fd);
+void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-int		ft_putstr_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
@@ -70,5 +65,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_strcmp2(const char *s1, const char *s2);
+char	*ft_strjoin3(const char *s1, const char *s2, const char *s3);
+size_t	ft_strcpy(char *dst, const char *src);
+size_t	ft_strcat(char *dst, const char *src);
+char	*ft_strlcpy2(char *str, int c);
 
 #endif

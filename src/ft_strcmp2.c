@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.h                                        :+:    :+:            */
+/*   ft_strcmp2.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/05 17:44:07 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/12/07 16:29:42 by alkuijte      ########   odam.nl         */
+/*   Created: 2025/03/09 12:06:18 by alkuijte      #+#    #+#                 */
+/*   Updated: 2025/03/09 12:44:04 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_FD_H
-# define FT_PRINTF_FD_H
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
-# include <libft.h>
+#include "../libft.h"
 
-int	ft_printf_fd(int fd, const char *s, ...);
-int	ft_printint_fd(int i, unsigned int nb, int fd);
-int	ft_hexd_fd(unsigned int nb, char x, int fd);
-int	ft_hexd2_fd(unsigned long long nb, int fd);
-int	ft_pointer_fd(void *p, int fd);
-
-#endif
+int	ft_strcmp2(const char *s1, const char *s2)
+{
+	if (!s1)
+	{
+		if (!s2)
+			return (0);
+		return (*s2);
+	}
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return ((unsigned char)(*s1) - (unsigned char)(*s2));
+		s1++;
+		s2++;
+	}
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
+}

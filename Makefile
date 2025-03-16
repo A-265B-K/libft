@@ -2,96 +2,83 @@ NAME = libft.a
 CFLAGS = -Wall -Werror -Wextra
 CC = gcc
 HEADER = libft.h
-SRCDIR = src/
-OBJDIR = obj/
+SRC_DIR = src
+OBJ_DIR = obj
 
-SRC = \
-	$(SRC_LIBFT) \
-	$(SRC_PRINTF) \
-	$(SRC_PRINTF_FD) \
-	$(SRC_GNL)
+# Manually list all source files
+SRC = $(SRC_DIR)/ft_atoi.c \
+      $(SRC_DIR)/ft_bzero.c \
+      $(SRC_DIR)/ft_calloc.c \
+      $(SRC_DIR)/ft_isalnum.c \
+      $(SRC_DIR)/ft_isalpha.c \
+      $(SRC_DIR)/ft_isascii.c \
+      $(SRC_DIR)/ft_isdigit.c \
+      $(SRC_DIR)/ft_isprint.c \
+      $(SRC_DIR)/ft_memcmp.c \
+      $(SRC_DIR)/ft_memchr.c \
+      $(SRC_DIR)/ft_memcpy.c \
+      $(SRC_DIR)/ft_memmove.c \
+      $(SRC_DIR)/ft_memset.c \
+      $(SRC_DIR)/ft_strchr.c \
+      $(SRC_DIR)/ft_strdup.c \
+      $(SRC_DIR)/ft_strlcat.c \
+      $(SRC_DIR)/ft_strlcpy.c \
+      $(SRC_DIR)/ft_strlen.c \
+      $(SRC_DIR)/ft_strncmp.c \
+      $(SRC_DIR)/ft_strnstr.c \
+      $(SRC_DIR)/ft_strrchr.c \
+      $(SRC_DIR)/ft_tolower.c \
+      $(SRC_DIR)/ft_toupper.c \
+      $(SRC_DIR)/ft_substr.c \
+      $(SRC_DIR)/ft_putchar_fd.c \
+      $(SRC_DIR)/ft_putendl_fd.c \
+      $(SRC_DIR)/ft_putnbr_fd.c \
+      $(SRC_DIR)/ft_putstr_fd.c \
+      $(SRC_DIR)/ft_strjoin.c \
+      $(SRC_DIR)/ft_itoa.c \
+      $(SRC_DIR)/ft_strtrim.c \
+      $(SRC_DIR)/ft_striteri.c \
+      $(SRC_DIR)/ft_strmapi.c \
+      $(SRC_DIR)/ft_split.c \
+      $(SRC_DIR)/ft_strcmp2.c \
+      $(SRC_DIR)/ft_strjoin3.c \
+      $(SRC_DIR)/ft_strcpy.c \
+      $(SRC_DIR)/ft_strlcpy2.c \
+      $(SRC_DIR)/ft_strcat.c
 
-SRC_LIBFT = \
-    ft_atoi.c \
-    ft_bzero.c \
-    ft_calloc.c \
-    ft_isalnum.c \
-    ft_isalpha.c \
-    ft_isascii.c \
-    ft_isdigit.c \
-    ft_isprint.c \
-    ft_memcmp.c \
-    ft_memchr.c \
-    ft_memcpy.c \
-    ft_memmove.c \
-    ft_memset.c \
-    ft_strchr.c \
-    ft_strdup.c \
-    ft_strlcat.c \
-    ft_strlcpy.c \
-    ft_strlen.c \
-    ft_strncmp.c \
-    ft_strnstr.c \
-    ft_strrchr.c \
-    ft_tolower.c \
-    ft_toupper.c \
-    ft_substr.c \
-    ft_putchar_fd.c \
-    ft_putendl_fd.c \
-    ft_putnbr_fd.c \
-    ft_putstr_fd.c \
-    ft_strjoin.c \
-    ft_itoa.c \
-    ft_strtrim.c \
-    ft_striteri.c \
-    ft_strmapi.c \
-    ft_split.c \
-    ft_lstnew.c \
-    ft_lstadd_front.c \
-    ft_lstsize.c \
-    ft_lstlast.c \
-    ft_lstadd_back.c \
-    ft_lstdelone.c \
-    ft_lstclear.c \
-    ft_lstiter.c \
-    ft_lstmap.c
+SRCB = $(SRC_DIR)/ft_lstnew.c \
+       $(SRC_DIR)/ft_lstadd_front.c \
+       $(SRC_DIR)/ft_lstsize.c \
+       $(SRC_DIR)/ft_lstlast.c \
+       $(SRC_DIR)/ft_lstadd_back.c \
+       $(SRC_DIR)/ft_lstdelone.c \
+       $(SRC_DIR)/ft_lstclear.c \
+       $(SRC_DIR)/ft_lstiter.c \
+       $(SRC_DIR)/ft_lstmap.c
 
-SRC_PRINTF = \
-	ft_pointer.c \
-	ft_print.c \
-	ft_printf.c
-
-SRC_PRINTF_FD = \
-	ft_pointer_fd.c \
-	ft_print_fd.c \
-	ft_printf_fd.c
-
-SRC_GNL = get_next_line.c \
-		  get_next_line_utils.c
-
-OBJS = $(SRC:%.c=$(OBJDIR)%.o)
+# Create object file names by replacing .c with .o, while keeping just the file name, not the full path
+OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
+OBJSB = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCB:.c=.o)))
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@ar -rcs $(NAME) $(OBJS)
-	@echo "Made libft, printf & gnl"
+	ar -rcs $(NAME) $(OBJS)
 
-%.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -Iincl -c $< -o $@
+# Rule to create object files from source files
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER)
+	@mkdir -p $(OBJ_DIR)  # Ensure the obj directory exists
+	$(CC) $(CFLAGS) $(INCL) -c $< -o $@
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
-	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -Iincl -c $< -o $@
+bonus: $(OBJS) $(OBJSB)
+	ar -rcs $(NAME) $(OBJS) $(OBJSB)
 
 clean:
-	@rm -f $(OBJS)
-	@echo "Removed libft, printf & gnl .o files"
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "Removed libft .a file"
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/11 14:31:48 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/05 17:21:07 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:40:51 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static int	ft_wordlength(const char *s, char c)
 {

@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/16 17:15:51 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/05 14:53:51 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:42:46 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 static int	ft_leng(int nb)
 {

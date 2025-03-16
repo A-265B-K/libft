@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print.c                                         :+:    :+:            */
+/*   ft_strcat.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/06 18:27:16 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/12/07 16:28:29 by alkuijte      ########   odam.nl         */
+/*   Created: 2025/03/09 12:11:48 by alkuijte      #+#    #+#                 */
+/*   Updated: 2025/03/09 12:47:43 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_fd.h"
+#include "../libft.h"
 
-int	ft_printint_fd(int i, unsigned int nb, int fd)
+size_t	ft_strcat(char *dst, const char *src)
 {
-	char	a[16];
-	int		c;
+	size_t	i;
+	size_t	i2;
 
-	c = 0;
-	if (i == 1)
-	{
-		if ((int)nb < 0)
-		{
-			nb = -((int)nb);
-			c += ft_putchar_fd('-', fd);
-		}
-	}
 	i = 0;
-	if (nb == 0)
-		return (ft_putchar_fd('0', fd));
-	while (nb > 0)
-	{
-		a[i] = nb % 10 + '0';
-		nb /= 10;
+	while (dst[i] != '\0')
 		i++;
+	i2 = 0;
+	while (src[i2] != '\0')
+	{
+		dst[i + i2] = src[i2];
+		i2++;
 	}
-	c += i;
-	while (--i >= 0)
-		ft_putchar_fd(a[i], fd);
-	return (c);
+	dst[i + i2] = '\0';
+	return (i + i2);
 }

@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/20 17:50:42 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/06 14:53:35 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:38:29 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 	// if (!s)
 	// 	return (NULL);

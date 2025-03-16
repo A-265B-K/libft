@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/17 14:57:58 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/06 14:08:12 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:38:45 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

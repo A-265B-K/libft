@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/17 14:03:46 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/05 14:52:57 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:40:43 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

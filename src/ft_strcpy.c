@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print.c                                         :+:    :+:            */
+/*   ft_strcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/12/06 18:27:16 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/12/07 16:28:29 by alkuijte      ########   odam.nl         */
+/*   Created: 2025/03/09 12:09:53 by alkuijte      #+#    #+#                 */
+/*   Updated: 2025/03/09 12:44:01 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_printf.h>
+#include "../libft.h"
 
-int	ft_printint(int i, unsigned int nb)
+size_t	ft_strcpy(char *dst, const char *src)
 {
-	char	a[16];
-	int		c;
+	size_t	i;
 
-	c = 0;
-	if (i == 1)
-	{
-		if ((int)nb < 0)
-		{
-			nb = -((int)nb);
-			c += ft_putchar('-');
-		}
-	}
 	i = 0;
-	if (nb == 0)
-		return (ft_putchar('0'));
-	while (nb > 0)
+	while (src[i] != '\0')
 	{
-		a[i] = nb % 10 + '0';
-		nb /= 10;
+		dst[i] = src[i];
 		i++;
 	}
-	c += i;
-	while (--i >= 0)
-		ft_putchar(a[i]);
-	return (c);
+	dst[i] = '\0';
+	return (i);
 }

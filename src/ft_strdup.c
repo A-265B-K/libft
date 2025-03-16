@@ -6,11 +6,11 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/10 15:36:25 by alkuijte      #+#    #+#                 */
-/*   Updated: 2023/11/06 14:07:12 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/09 12:41:08 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
 char	*ft_strdup(const char *s)
 {

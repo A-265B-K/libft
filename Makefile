@@ -44,7 +44,8 @@ SRC = $(SRC_DIR)/ft_atoi.c \
       $(SRC_DIR)/ft_strjoin3.c \
       $(SRC_DIR)/ft_strcpy.c \
       $(SRC_DIR)/ft_strlcpy2.c \
-      $(SRC_DIR)/ft_strcat.c
+      $(SRC_DIR)/ft_strcat.c \
+      $(SRC_DIR)/ft_realloc.c
 
 SRCB = $(SRC_DIR)/ft_lstnew.c \
        $(SRC_DIR)/ft_lstadd_front.c \

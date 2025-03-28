@@ -6,7 +6,7 @@
 /*   By: alkuijte <alkuijte@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/12 19:40:27 by alkuijte      #+#    #+#                 */
-/*   Updated: 2025/03/09 12:44:27 by alkuijte      ########   odam.nl         */
+/*   Updated: 2025/03/28 11:32:04 by alkuijte      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ char	*ft_strjoin3(const char *s1, const char *s2, const char *s3);
 size_t	ft_strcpy(char *dst, const char *src);
 size_t	ft_strcat(char *dst, const char *src);
 char	*ft_strlcpy2(char *str, int c);
+void	*ft_realloc(void *ptr, size_t new_size);
 
 #endif

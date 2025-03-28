@@ -5,7 +5,6 @@ HEADER = libft.h
 SRC_DIR = src
 OBJ_DIR = obj
 
-# Manually list all source files
 SRC = $(SRC_DIR)/ft_atoi.c \
       $(SRC_DIR)/ft_bzero.c \
       $(SRC_DIR)/ft_calloc.c \
@@ -57,7 +56,6 @@ SRCB = $(SRC_DIR)/ft_lstnew.c \
        $(SRC_DIR)/ft_lstiter.c \
        $(SRC_DIR)/ft_lstmap.c
 
-# Create object file names by replacing .c with .o, while keeping just the file name, not the full path
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRC:.c=.o)))
 OBJSB = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCB:.c=.o)))
 
@@ -66,7 +64,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar -rcs $(NAME) $(OBJS)
 
-# Rule to create object files from source files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER)
 	@mkdir -p $(OBJ_DIR)  # Ensure the obj directory exists
 	$(CC) $(CFLAGS) $(INCL) -c $< -o $@
